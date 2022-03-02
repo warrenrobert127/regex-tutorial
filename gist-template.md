@@ -1,10 +1,12 @@
-# Title (replace with your title)
+# Analyzing the Regular Expression Representation of an email
 
 Introductory paragraph (replace this with your text)
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/
+
+Above is the regular expression representing an email.  This puzzling and cryptic series of symbols, numbers and letters will help us search through a document and extract only emails.  This highly efficient code will only accept strings formatted to look like example@domain.com
 
 ## Table of Contents
 
@@ -23,9 +25,26 @@ Briefly summarize the regex you will be describing and what you will explain. In
 ## Regex Components
 
 ### Anchors
+The carot symbol (^) and the money symbol ($) are the anchors.  The carot symbol represents the start of the regular expression.  
 
+So in our case ^([a-z0-9_\.-]+)... we are saying that the string we are searching for must begin with either a lowercase letter, a number or any of the symbols ( _ ) ( . ) or ( - ).
+
+And ...([a-z\.]{2,6})$ we are saying that the string we are searching for must end with either a lowercase letter or a period
+ 
 ### Quantifiers
+In Regex, the quantifiers are * + ? { n } {n ,} and {n, m}
 
+* match zero or more times
++ match one or more times
+? match zero or one time
+{ n } match exactly n number of times
+{N ,} match at least n number of times
+
+So in our case [a-z0-9_\.-]+ says that we are looking for one or more characters that are either lowercase letters, numbers or ( _ ) ( . ) or ( - ).
+
+... then [\da-z\.-]+ => one or more characters that are either digits (\d) lowercase letters, a period or a hyphen
+
+... and finally [a-z\.]{2,6} between 2 and 6 characters that are either lowercase letters or a period
 ### OR Operator
 
 ### Character Classes
